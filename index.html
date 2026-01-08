@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colettering</title>
+
+<style>
+    /* GLOBAL STYLES */
+    body {
+        margin: 0;
+        padding: 0;
+        background: #f9f6f2; /* warm soft white */
+        font-family: "Inter", sans-serif;
+        color: #222;
+        scroll-behavior: smooth;
+    }
+
+    section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        scroll-snap-align: start;
+        padding: 40px 20px;
+    }
+
+    /* Enable scroll snapping */
+    html {
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+    }
+
+    /* LANDING PAGE */
+    #landing {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    #landing h1 {
+        font-variant: small-caps;
+        font-size: 3.5rem;
+        letter-spacing: 0.08em;
+        margin: 0;
+    }
+
+    #landing p {
+        margin-top: 10px;
+        font-size: 1.1rem;
+        opacity: 0.7;
+    }
+
+    /* HEADER AFTER ENTERING */
+    header {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 20px 0;
+        text-align: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.6s ease;
+    }
+
+    header.visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    header h2 {
+        font-variant: small-caps;
+        font-size: 1.6rem;
+        margin: 0;
+        letter-spacing: 0.1em;
+    }
+
+    nav {
+        margin-top: 8px;
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+
+    nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #222;
+    }
+
+    /* PORTFOLIO GRID */
+    #portfolio {
+        padding-top: 120px; /* space for header */
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+        width: 90%;
+        max-width: 900px;
+    }
+
+    .grid div {
+        background: #ddd;
+        width: 100%;
+        padding-bottom: 100%; /* perfect square */
+        border-radius: 4px;
+    }
+
+    /* INTRO + CONTACT */
+    #contact {
+        padding-top: 120px;
+        max-width: 600px;
+        text-align: center;
+        line-height: 1.6;
+	margin: 0 auto;
+    }
+
+    #contact h3 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    #contact p {
+        opacity: 0.8;
+    }
+
+</style>
+
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<section id="landing" onclick="enterSite()">
+    <h1>Colettering</h1>
+    <p>lettering, illustration & design.</p>
+</section>
+
+<!-- HEADER (hidden until entering) -->
+<header id="mainHeader">
+    <h2>Colettering</h2>
+    <nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- PORTFOLIO SECTION -->
+<section id="portfolio">
+    <div class="grid">
+        <!-- 20 placeholder squares -->
+        <div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+    <h3>About & Contact</h3>
+    <p>
+        Hi, I’m Christina — a lettering artist, illustrator, and designer based in North Carolina.
+        I create expressive, handcrafted lettering and visual storytelling with a warm, editorial touch.
+    </p>
+    <p>
+        Email: <strong>yourname@email.com</strong>
+    </p>
+</section>
+
+<script>
+    function enterSite() {
+        document.getElementById("mainHeader").classList.add("visible");
+        window.location.href = "#portfolio";
+    }
+</script>
+
+</body>
+</html>
